@@ -16,8 +16,7 @@ import org.springframework.messaging.MessagingException;
 @SpringBootApplication
 public class Application {	
 
-	public static void main(String[] args) {
-		pop3Reader();		
+	public static void main(String[] args) {		
         SpringApplication.run(Application.class, args);        
     }
 	
@@ -57,7 +56,7 @@ public class Application {
 		}); 		
 	}
 	
-	public void imapIdle(){
+	public static void imapIdle(){
 		
 		ApplicationContext ac = new ClassPathXmlApplicationContext("/META-INF/spring/integration/gmail-imap-idle-config.xml");
 		DirectChannel inputChannel = ac.getBean("receiveChannel", DirectChannel.class);
@@ -89,7 +88,6 @@ public class Application {
 					e.printStackTrace();
 				}					
 			}
-		});
-		
+		});		
 	}
 }
